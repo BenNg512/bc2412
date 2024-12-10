@@ -6,6 +6,7 @@ public class Exercise20241210 {
     int quantityOfOrange = 4;
 
     // answer is double: int * double is double
+    // int -> double
     // output is double
     double totalAmount = priceForApple * quantityOfApple + priceForOrange * quantityOfOrange;
     System.out.println(totalAmount);
@@ -14,8 +15,7 @@ public class Exercise20241210 {
     int englishScore = 60;
     int historyScore = 61;
 
-    // answer is double:change average number to double
-    // output is double
+    // answer is required to be double: change result to double by making the divider to 3.0
     double averageScore = (mathScore + englishScore + historyScore) / 3.0;  
     System.out.println(averageScore);//64.66
 
