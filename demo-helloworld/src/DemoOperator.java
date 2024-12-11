@@ -80,7 +80,7 @@ public class DemoOperator {
     int z10 = x10 += 3 * y10;
     System.out.println(z10); //35
 
-    int x11 =3;
+    int x11 = 3;
     int y11 = (x11++ + 3) * x11++ * x11++; //(3+3)*4*5
     // x11++ = 3 first,
     // x11++ = 4 after (x11++ + 3), (x11++ + 3) * x11++ = 24

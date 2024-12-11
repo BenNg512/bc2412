@@ -23,7 +23,6 @@ public class DemoComparison {
     System.out.println(price != 10.2f); // false, price == 10.2f
     System.out.println(price != 10.2); // true, price not = 10.2
 
-
     //! operator (Not)
     boolean result = !isAdult;
     System.out.println(result);
@@ -79,10 +78,25 @@ public class DemoComparison {
     System.out.println("true AND false OR true: " + result7);
 
     //!try try (true OR false AND true) to see which part run first
-    
 
+    // print the last character of a string
+    String password2 = "helloworld";
+    char lastChar = password2.charAt(password2.length() - 1);
+    System.out.print("Last char = " + lastChar);
 
+    // Empty String
+    String emptyString = "";
+    System.out.println(emptyString.length());
+    boolean isStringEmpty = (emptyString.length() == 0);
+    //! isStringEmpty = "".equals(emptyString);
+    //! do not write = emptyString.equals("");
+    System.out.println(isStringEmpty);
+    System.out.println(isStringEmpty + "1");
 
+    String s = "hello";
+    System.out.println("hello".equals(s) + " hello");
+    System.out.println("hello".length());
+    System.out.println("hello".charAt(2));
 
   }  
 }
