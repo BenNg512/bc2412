@@ -24,9 +24,9 @@ public class JavaQuest2 {
     if (str.length() == 27) {
       System.out.println("str length=27");
     } else if (str.length() < 27) { // code here ... add the condition
-      System.out.println("str length < 27" + ", str length = " + str.length());
+      System.out.println("str length < 27");
     } else if (str.length() >27) { // code here ... complete the code
-      System.out.println("str length > 27" + ", str length = " + str.length());
+      System.out.println("str length > 27");
     }
   }
 }
