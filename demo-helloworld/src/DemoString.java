@@ -48,6 +48,32 @@ public class DemoString {
     int result4 = password.length();
     System.out.println("Length of 'password!': " + result4);
 
+    // isEmpty()
+    String s5 = "abc";
+    boolean isEmpty = s5.isEmpty();
+    boolean isEmpty2 = s5.length() == 0;
+    System.out.println(isEmpty);
+    System.out.println(isEmpty2);
+    System.out.println(s5.isEmpty());
+
+    if (!s5.isEmpty()){
+      System.out.println("s5 is not empty");
+    }
+
+    // Substring 
+    String substr = s5.substring(0,2);
+    String substr3 = s5.substring(1);// start at 1, end at last character
+    String substr4 = s5.substring(1, s5.length());
+    // substr4 = s5.substring
+    //! s5 is still abc, substr is ab (new string value)
+    System.out.println(substr);
+ 
+
+    // Whole String of s5
+    String substr2 = s5.substring(0, s5.length());
+    System.out.println(substr2);
+    System.out.println(substr3);
+
   }
   
 }
