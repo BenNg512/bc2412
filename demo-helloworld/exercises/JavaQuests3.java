@@ -48,8 +48,8 @@ public class JavaQuests3 {
       monthOfName = "November";
     } else if (month == 12){
       monthOfName = "December";
-    } else monthOfName = "No such month";
-
+    } else 
+      monthOfName = "Error";
     System.out.print("Input a year: ");
     int year = input.nextInt(); // > 0
 
@@ -86,8 +86,10 @@ public class JavaQuests3 {
       numberOfDaysInMonth = 0;
     }
 
-    System.out.println(
-        monthOfName + " " + year + " has " + numberOfDaysInMonth + " days");
+    if (month > 0 && month < 13 ){
+    System.out.println(monthOfName + " " + year + " has " + numberOfDaysInMonth + " days");
+  } else {
+    System.out.println("month is not a valid month number");
   }
-
+}
 }

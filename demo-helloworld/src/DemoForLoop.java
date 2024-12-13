@@ -112,18 +112,19 @@ public class DemoForLoop {
     // 4. ""(nothing)
 
     //  check if substring exists in the string
-    String substr = "llo";
+    String substr = "ll";
     String str2 = "hello";
     boolean exists = false;
-    for (int i = 0; i < str2.length() - substr.length()-1; i++){
-      System.out.println(str2.substring(i,i + substr.length()));
+    // for (int i = 0; i < str2.length() - substr.length()-1; i++){
+    for (int i = 0; i < str2.length() - substr.length()+1; i++){
+      System.out.println(i);
+      System.out.println("AWS: " + str2.substring(i,i + substr.length()));
       if (str2.substring(i,i + substr.length()).equals(substr)){
         exists = true;
-      } else { exists = false; 
+      } else {
+        exists = false; 
       }
+      System.out.println(substr + " exists = " + exists);
     }
-    System.out.println(exists);
-      
-    
   }
 }
