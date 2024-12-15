@@ -149,8 +149,31 @@ public static void main(String[] args) {
     boolean isAdult = age2 >= 18;
     System.out.println(isAdult);//True
 
+    char q = 'a';
+    int u = q;
+    System.out.println(u); //97
+    // char -> int (upcast) //! OK
 
+    char q2 = '0';
+    int u2 = q2;
+    System.out.println(u2); 
 
+    // char value:
+    // '0' = 48
+    // 'A' = 65
+    // 'a' = 97
+    char q3 = 48;
+    int u3 = q3;
+    System.out.println("char: " + q3); //0
+    System.out.println("value: " + u3); //48
+    // 
+    char q4 = 10000; // max 65535, each number represent to a character, includes symbols and other langs
+    System.out.println(q4); //
+
+    char q5 = '你';
+    int u5 = q5;
+    System.out.println(q5); //
+    System.out.println(u5); //
 }
 }
 

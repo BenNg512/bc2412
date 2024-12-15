@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class JavaQuests3 {
+public class JavaQuest3 {
   /**
    * Expected Output:
    * 
@@ -24,66 +24,83 @@ public class JavaQuests3 {
 
     System.out.print("Input a month number: ");
     int month = input.nextInt(); // assume 1 - 12
-    if (month == 1){
-      monthOfName = "January";  
-    } else if (month == 2){
-      monthOfName = "February";
-    } else if (month == 3){
-      monthOfName = "March";
-    } else if (month == 4){
-      monthOfName = "April";
-    } else if (month == 5){
-      monthOfName = "May";
-    } else if (month == 6){
-      monthOfName = "June";
-    } else if (month == 7){
-      monthOfName = "July";
-    } else if (month == 8){
-      monthOfName = "August";
-    } else if (month == 9){
-      monthOfName = "September";
-    } else if (month == 10){
-      monthOfName = "October";
-    } else if (month == 11){
-      monthOfName = "November";
-    } else if (month == 12){
-      monthOfName = "December";
-    } else 
-      monthOfName = "Error";
+    //  switch(month){
+    //  case 1: monthOfName = "January";
+    //  break;
+    //  case 2: monthOfName = "February";
+    //  break;
+    //  case 3: monthOfName = "March";
+    //  break;
+    //  case 4: monthOfName = "April";
+    //  break;
+    //  case 5: monthOfName = "May";
+    //  break;
+    //  case 6: monthOfName = "June";
+    //  break;
+    //  case 7: monthOfName = "July";
+    //  break;
+    //  case 8: monthOfName = "August";
+    //  break;
+    //  case 9: monthOfName = "September";
+    //  break;
+    //  case 10: monthOfName = "October";
+    //  break;
+    //  case 11: monthOfName = "November";
+    //  break;
+    //  case 12: monthOfName = "December";
+    //  break;
+    //  default: monthOfName = "Month number is error"; 
+    //  }
+
     System.out.print("Input a year: ");
     int year = input.nextInt(); // > 0
 
     // The February has 29 days: (Every 4 years and the year cannot divded by
     // 100) or The year can divided by 400
     // otherwise the February should have 28 days only
-    if (month == 2 && year % 4 == 0 && year % 100 > 0 || year % 400 == 0 ){
+    
+    if (month == 1){
+      monthOfName = "January";
+      numberOfDaysInMonth = 31; 
+    } else if (month == 2 && year % 4 == 0 && year % 100 > 0 || year % 400 == 0 ){
+      monthOfName = "February";
       numberOfDaysInMonth = 29;
-    } else if (month == 1){
-      numberOfDaysInMonth = 31;
     } else if (month == 2){
+      monthOfName = "February";
       numberOfDaysInMonth = 28;
     } else if (month == 3){
+      monthOfName = "March";
       numberOfDaysInMonth = 31;
     } else if (month == 4){
+      monthOfName = "April";
       numberOfDaysInMonth = 30;
     } else if (month == 5){
+      monthOfName = "May";
       numberOfDaysInMonth = 31;
     } else if (month == 6){
+      monthOfName = "June";
       numberOfDaysInMonth = 30;
     } else if (month == 7){
+      monthOfName = "July";
       numberOfDaysInMonth = 31;
     } else if (month == 8){
+      monthOfName = "August";
       numberOfDaysInMonth = 31;
     } else if (month == 9){
+      monthOfName = "September";
       numberOfDaysInMonth = 30;
     } else if (month == 10){
+      monthOfName = "October";
       numberOfDaysInMonth = 31;
     } else if (month == 11){
+      monthOfName = "November";
       numberOfDaysInMonth = 30;
     } else if (month == 12){
+      monthOfName = "December";
       numberOfDaysInMonth = 31;
     } else {
-      numberOfDaysInMonth = 0;
+      monthOfName = "Inappropriate month number";
+      numberOfDaysInMonth = 9999999;
     }
 
     if (month > 0 && month < 13 ){

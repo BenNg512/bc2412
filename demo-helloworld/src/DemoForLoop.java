@@ -115,10 +115,10 @@ public class DemoForLoop {
     String substr = "ll";
     String str2 = "hello";
     boolean exists = false;
-    // for (int i = 0; i < str2.length() - substr.length()-1; i++){
+    // for (int i = 0; i < str2.length() - substr.length()+1; i++){
     for (int i = 0; i < str2.length() - substr.length()+1; i++){
       System.out.println(i);
-      System.out.println("AWS: " + str2.substring(i,i + substr.length()));
+      System.out.println("ANSWER: " + str2.substring(i,i + substr.length()));
       if (str2.substring(i,i + substr.length()).equals(substr)){
         exists = true;
       } else {
@@ -126,5 +126,98 @@ public class DemoForLoop {
       }
       System.out.println(substr + " exists = " + exists);
     }
+
+    // Counting
+    String s = "hellololololo";
+    int count = 0;
+    for (int i = 0; i < s.length(); i++){
+      if (s.charAt(i) == 'l'){
+        count++;
+      }
+    }
+    System.out.println("count1: " + count);
+
+    // continue - skip the rest, go to the next iteration
+    int count2 = 0;
+    for (int i = 0; i < s.length(); i++){
+      if (s.charAt(i) != 'l'){  //  != here
+        continue; // skip count++ (because char is not l), go to i++ (next loop)
+      }
+      count2++; 
+    }
+    System.out.println("count2: " + count2);
+
+    // 1-100, print out all divided by 3 & 4;
+    for (int i = 1; i < 101; i++){
+      if (i % 3 != 0 || i % 4 != 0){ // i % 12 != 0
+      //      i % 3 != 0 && i % 4 != 0 event 1
+      //   || i % 3 != 0 && i % 4 == 0 event 2
+      //   || i % 3 == 0 && i % 4 != 0 event 3
+      // if (i % 3 != 0 || i % 4 != 0) 
+      //! We need to find: (i % 3 == 0 && i % 4 == 0)
+      //! use the opposite : if (i % 3 != 0 || i % 4 != 0) 
+
+        continue;
+        }
+      System.out.println(i);
+      }
+      // Nest loop: loop inside loop
+      for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 4; j++){
+          System.out.print("* ");
+        }
+      }
+      System.out.println();
+      // step 1: i=0, j=0 : print *
+      // step 2: i=0, j=1 : print *
+      // step 3: i=0, j=2 : print *
+      // step 4: i=0, j=3 : print * end for looping i = 0 because j++ loop ends at i < 4
+      //!        i=0, j=4 : * not print
+      // step 5: i=1, j=0 : print *
+      // step 6: i=1, j=1 : print *
+      // step 7: i=1, j=2 : print *
+      // step 8: i=1, j=3 : print *
+      // step 9: i=2, j=0 : print *
+      // step 10: i=2, j=1 : print *
+      // step 11: i=2, j=2 : print *
+      // step 12: i=2, j=3 : print * and end the loop because i++ loop ends at i < 3
+      //!         i=3, j=0 : * not print
+
+    // draw
+    //. *
+    //. **
+    //. ***
+    //. ****
+      int rows = 10;
+      int column = 20;
+      for (int i = 0; i <= rows; i++){ // no. rows
+        for (int j = 0; j <= column; j++){ // max column
+          if (i >= j){ // if j > i, no. of stars = j-1 on that row
+          System.out.print("*");
+          } else {
+          System.out.print(" ");
+          }
+        }System.out.println();
+      }
+      System.out.println();
+    // draw a Christmas tree
+    // ....*.... // mid = 
+    // ...***...
+    // ..*****..
+    // .*******.
+    int rows2 = 5;
+    int column2 = 9;
+    for (int i = 0; i <= rows2; i++){ // rows
+      for (int j = 0; j <= column2; j++){ // columns
+        if (j > column2/2 +i || j < column2/2 -i ){ // if j > i, no. of stars = j-1 on that row
+        System.out.print(" ");
+        } else {
+        System.out.print("*");
+        }
+      } System.out.println("");
+    }
+
+
+    System.out.println();
   }
 }
