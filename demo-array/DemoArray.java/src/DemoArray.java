@@ -214,8 +214,8 @@ public class DemoArray {
 
     char[] arr12 = new char[] {'p','a','p','b','a','p','c'};
     //
-    char[] charpab = new char[] {'a','b','p','c'};
-    int[] count = new int[] {0, 0, 0, 0};
+    char[] charpab = new char[] {'a','b','c','d','p'};
+    int[] count = new int[] {0, 0, 0, 0, 0};
     char maxNumChar = ' ';
     // Count the exist number of characters first
     for (int i = 0; i < charpab.length; i++){
@@ -233,8 +233,29 @@ public class DemoArray {
     }
     }
     System.out.println("Most exist char is "+ maxNumChar);
-    System.out.println("");
+    System.out.println("-------------------------");
+    //
+    int[] counters = new int[26]; // 26 characters (a-z, index: 0-25)
+    for (int i = 0; i < arr12.length; i++){
+        
+        //! counter[i]
+        counters[arr12[i] - 'a']++; // char = value: b-a=1 -> target is b -> counters[1] +1
+        // arr12[0] - 'a' -> p-a -> 112-97 -> 15; counter[15] -> p -> counters[15] +1
+        // arr12[1] - 'a' -> a-a -> 97-97 -> 0; counter[0] -> a -> counters[0] +1
+        System.out.println(counters[arr12[i] - 'a']);
+    };
     
+    int max2 = Integer.MIN_VALUE;
+    char maxNumChar2 = ' ';
+    for (int i = 0; i < counters.length; i++){
+        if (counters[i] > max2){
+        // max2 = Math.max(counters[i], max2);
+        max2 = counters[i]; // 3
+        maxNumChar2 = (char)(i+97); // p
+    }System.out.println("count " + (char)(i+97) + " : " + counters[i]);
+    }
+    System.out.println("Max count = "+ max2);
+    System.out.println("Most exist char is "+ maxNumChar2);
 
 }
 }
