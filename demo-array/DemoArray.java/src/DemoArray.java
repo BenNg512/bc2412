@@ -131,7 +131,7 @@ public class DemoArray {
                 temp = arr7[j];
                 arr7[j] = arr7[j + 1];
                 arr7[j + 1] = temp;
-                System.out.println(arr7[j]);
+                System.out.println(temp);
             }
             // Step 1: compare 9 & -8, put -8 to the left
             // Step 2: compare 9 & 109; put 9 to the left
@@ -211,7 +211,6 @@ public class DemoArray {
     System.out.println("-------------------------");
 
 
-
     char[] arr12 = new char[] {'p','a','p','b','a','p','c'};
     //
     char[] charpab = new char[] {'a','b','c','d','p'};
@@ -252,10 +251,48 @@ public class DemoArray {
         // max2 = Math.max(counters[i], max2);
         max2 = counters[i]; // 3
         maxNumChar2 = (char)(i+97); // p
-    }System.out.println("count " + (char)(i+97) + " : " + counters[i]);
+    }
+    //System.out.println("count " + (char)(i+97) + " : " + counters[i]);
     }
     System.out.println("Max count = "+ max2);
     System.out.println("Most exist char is "+ maxNumChar2);
+    System.out.println("-------------------------");
+    //
+    int[] arr20 = new int[] {20, -20, 90, 50, -40};
+    // sorting
+    // move the largest number to the end
+    for (int i = 0; i < arr20.length -1; i++){
+        // Step 1:  move largest number to the end [x, x, x, x, 90] (1=0, j < 4)
+        // Step 2:  move the 2nd largest number to the end [x, x, x, 50, 90] (i=1, j <= 3)
+        // Step 3:  move the 3rd largest number to the end [x, x, 20, 50, 90] (i=2, j <= 2)
+        // Step 4:  move the 4th largest number to the end [x, -20, 20, 50, 90] (i=3, j<= 1)
+        // Step 5:  move the 5th largest number to the end [-40, -20, 20, 50, 90] 
+        for (int j = 0; j < arr20.length -1 - i; j++){
+            if (arr20[j] > arr20[j+1]){
+                temp = arr20[j]; // store larger value
+                arr20[j] = arr20[j+1]; // swap smaller value to the left
+                arr20[j+1] = temp; // j+1 return larger value -> next loop   
+            }
+        }
+    }
+    //
+    for (int num : arr20) {
+        System.out.print(num + " ");
+    }   
+    System.out.println("");
+    //
+    int product2 = 1;
+    for (int i = 0; i < arr20.length; i++){
+        product2 = arr20[i]; 
+    }
+    System.out.println(product2);
+    System.out.println(arr20);//-40 -20 20 50 90
+        
+    
+
+
+
+
 
 }
 }
