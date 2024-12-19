@@ -27,22 +27,20 @@ public class JavaQuest10 {
     System.out.println("Original Array : " + Arrays.toString(my_array));
 
     // code here ...
-    // find index position
-    // change the index to new value
+    
+    
     // remove last element
     // return the new array
-    int[] newArr = new int[my_array.length - 1];
-    
-    while (indexPosition < my_array.length - 1){
-      if ( < indexPosition) {
-        newArr[i] = my_array[i];
-      } else {
-        newArr[i] = my_array[i + 1];
-      }
-      i++
-    }
-    newArr[indexPosition] = newValue;
-
+    int[] newArr = new int[my_array.length];
+      for (int i = 0; i < my_array.length; i++){
+        if (i < indexPosition){
+          newArr[i] = my_array[i];
+        } else if (i == indexPosition){
+          newArr[i] = newValue;
+        } else if (i > indexPosition){
+          newArr[i] = my_array[i-1];
+        } 
+      } 
     // my_array = newArr;
     System.out.println("New Array: " + Arrays.toString(newArr));
   }
