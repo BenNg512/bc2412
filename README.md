@@ -23,3 +23,15 @@
 
 - switch, continue
 
+## week 2
+- while loop (difference between for loop & while loop)
+- for-each loop (simple design for loop : one element per iteration)
+- array (support 17 types)
+- wrapper class (for 8 primitive)
+- String method
+- method
+  - input parameters
+  - return type
+  - method names
+  - method signature = method parameter + input name
+- BigDecimal

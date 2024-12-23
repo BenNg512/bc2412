@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DemoScanner {
   public static void main(String[] args){
-    String s = "abc";
+    //String s = "abc";
     Scanner scanner = new Scanner (System.in);
     //System.out.println("Please input a number");
     //int num = scanner.nextInt();
@@ -26,7 +26,7 @@ public class DemoScanner {
     // num -> num of days
     // for loop
     System.out.println("Please input day number");
-    in days = scanner.nextInt();
+    int days = scanner.nextInt();
     double totalHours = 0;
     double totalMins = 0;
     for (int i = 0; i < days; i++){
@@ -35,7 +35,7 @@ public class DemoScanner {
     }
     System.out.println("Total hrs: " + totalHours);
     System.out.println("Total mins: " + totalMins);
-
+    scanner.close();
   }
   
 }

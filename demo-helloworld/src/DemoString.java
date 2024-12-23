@@ -1,17 +1,17 @@
 public class DemoString {
   public static void main(String[] args){
-    char x = 'a';
-    x = 1;
+    // char x = 'a';
+    // x = 1;
     // x=1.1 //! no
     // x = true;
-    x = 'x';
+    // x = 'x';
     //char x = '0';
     // char x ='abcd1234'//! no
     
     // String // ! define a string value by double quote "xxx"
     // char // ! define a char value by single quote 'x'
     String password = "abcd1234";
-    String emailAddress = "abcd@gmail.com";
+    // String emailAddress = "abcd@gmail.com";
 
     // + operation
     password = password + "!";
@@ -63,11 +63,11 @@ public class DemoString {
     // Substring 
     String substr = s5.substring(0,2);
     String substr3 = s5.substring(1);// start at 1, end at last character
-    String substr4 = s5.substring(1, s5.length());
+    // String substr4 = s5.substring(1, s5.length());
     // substr4 = s5.substring
     //! s5 is still abc, substr is ab (new string value)
     System.out.println(substr);
- 
+
 
     // Whole String of s5
     String substr2 = s5.substring(0, s5.length());

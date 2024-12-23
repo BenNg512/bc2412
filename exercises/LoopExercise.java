@@ -242,22 +242,19 @@ public class LoopExercise {
     // Assumption: each digit value appear once in the String
     // Print: "49280"
     String s19 = "40289";
-
     char maxDigit = s19.charAt(0);
     char minDigit = s19.charAt(0);
-
     for (int i = 1; i < s19.length(); i++) {
       if (s19.charAt(i) > maxDigit) {
           maxDigit = s19.charAt(i);
-          
       }
       if (s19.charAt(i) < minDigit) {
           minDigit = s19.charAt(i);
       }  
     } 
-    s19 = s19.replace(maxDigit, '*');
-    s19 = s19.replace(minDigit, maxDigit);
-    s19 = s19.replace('*', minDigit);
+    s19 = s19.replace(maxDigit, '*')//
+             .replace(minDigit, maxDigit)//
+             .replace('*', minDigit);
     System.out.println(s19);
 
 

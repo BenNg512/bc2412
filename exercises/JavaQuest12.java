@@ -32,8 +32,26 @@ public class JavaQuest12 {
   // Code a method here to return an array of two numbers that sum up to the
   // [2, 7]
   public static int[] twoSum(int[] dataset, int target) {
-    
-    return new int[] {a, b};
-  }
+    // a = first number index, 
+    // b = second number index,
+    // value at a + value at b = target, 
+    // a =/= b
+    // if true, [a, b] & [b, a] + [a2, b2] & [b2, a2] +... 
+    int a = -1;
+    int b = -1;
 
+    for (int i = 0; i < dataset.length; i++) {
+      for (int j = 0; j < dataset.length; j++) {
+        if (dataset[j] + dataset[i] == target) {
+          a = j;
+          b = i;
+        }
+      }
+    }
+    return new int[] {a, b};
+
+
+
+
+  }
 }
