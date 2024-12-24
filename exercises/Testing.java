@@ -1,24 +1,28 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Testing {
   public static void main(String[] args){
-    int[] dataset = new int[] { 2, 7, 11, 15 };
-    int target = 18;
-    int a = -1;
-    int b = -1;
-    for (int i = 0; i < dataset.length; i++) {
-      for (int j = 0; j < dataset.length; j++) {
-        if (dataset[j] + dataset[i] == target) {
-          a = j;
-          b = i;
-          
+    int[][] rectangles = {
+      {4, 8},
+      {3, 6},
+      {10, 20},
+      {15, 30},
+    };
+    double[] ratios = new double[rectangles.length];
+        Map<Double, Integer> ratioCount = new HashMap<>();
+        int count = 0;
+        for (int[] rectangle : rectangles) {
+            double ratio = (double) rectangle[0] / rectangle[1];
+            ratioCount.put(ratio, ratioCount.getOrDefault(ratio, 0) + 1);
         }
-      }
-    }
-    int[] output = new int[] {a, b};
-    System.out.println(Arrays.toString(output));
 
-
-
+        for (int c : ratioCount.values()) {
+            if (c > 1) {
+                count += (long) c * (c - 1) / 2;
+          }
+        }
+    System.out.println(count);
   }
 }

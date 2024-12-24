@@ -11,6 +11,7 @@ public class Travel {
     this.avgExpense = avgExpense;
     this.visaRequired = visaRequired;
   }
+  // Getters
   public String getCountry(){
     return this.country;
   }
@@ -20,8 +21,26 @@ public class Travel {
   public int getAvgExpense(){
     return this.avgExpense;
   }
+  public boolean isExpensive(){
+    return this.avgExpense > 15000 ? true : false;
+  }
+
+
   public boolean getVisaRequired(){
     return this.visaRequired;
+  }
+  // Setters
+  public void setCountry(String country){
+    this.country = country;
+  }
+  public void setRegion(String region){
+    this.region = region;
+  }
+  public void setAvgExpense(int avgExpense){
+    this.avgExpense = avgExpense;
+  }
+  public void setVisaRequired(boolean visaRequired){
+    this.visaRequired = visaRequired;
   }
 
   public static void main(String[] args){
@@ -35,10 +54,11 @@ public class Travel {
 
   for (Travel country : countries){
     System.out.println(
-    "Country: "         + country.getCountry() +
-    ", Region: "        + country.getRegion() +
-    ", Avg Exp(HKD): "  + country.getAvgExpense() +
-    ", VISA required: " + country.getVisaRequired());
+    "Country: "       + country.getCountry() + ", " +
+    "Region: "        + country.getRegion() + ", " +
+    "Avg Exp(HKD): "  + country.getAvgExpense() + ", " +
+    "Expensive: "     + country.isExpensive() + ", " +
+    "VISA required: " + country.getVisaRequired());
   }
 
 
