@@ -42,5 +42,9 @@ public class DemoSwitch {
         System.out.println("other genders");
     }
 
+    String scr = "IVXLCDM";
+    
+
+
   }
 }

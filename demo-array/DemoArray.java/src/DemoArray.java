@@ -287,9 +287,6 @@ public class DemoArray {
     }
     System.out.println(product2);
     System.out.println(arr20);//-40 -20 20 50 90
-        
-    
-
 
 
 

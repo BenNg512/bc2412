@@ -2,16 +2,18 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class BMI {
-  String name;
-  double height;
-  double weight;
+  private String name;
+  private double height;
+  private double weight;
+  private char gender;
   
-  BMI(String name, double height, double weight){
+  BMI(String name, double height, double weight, char gender){
     this.name = name;
     this.height = height;
     this.weight = weight;
+    this.gender = gender;
   }
-  String getName(){
+  public String getName(){
     return this.name;
   }
   double getHeight(){
@@ -19,6 +21,9 @@ public class BMI {
   }
   double getWeight(){
     return this.weight;
+  }
+  char getGender(){
+    return this.gender;
   }
   public double bmi(){
     return BigDecimal.valueOf(this.weight)
@@ -67,9 +72,9 @@ public class BMI {
   }
 
   public static void main(String[] args){
-    BMI p1 = new BMI("Ben", 1.81, 72.55555);
-    BMI p2 = new BMI("John", 1.71, 70.0);
-    BMI p3 = new BMI("Fat Boy", 1.60, 180.4);
+    BMI p1 = new BMI("Ben", 1.81, 72.55555,'M' );
+    BMI p2 = new BMI("John", 1.71, 70.0,'F');
+    BMI p3 = new BMI("Fat Boy", 1.60, 180.4,' ');
 
     BMI[] people = new BMI[]{p1, p2, p3};
 
@@ -81,6 +86,7 @@ public class BMI {
         "Weight: " + p.getWeight() + ", " +
         "BMI: " + p.bmi() + ", " +
         "BMI Status: "+ p.bmiStatus()
+        + p.getGender()
       );
     }
 

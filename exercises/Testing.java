@@ -1,28 +1,32 @@
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Testing {
-  public static void main(String[] args){
-    int[][] rectangles = {
-      {4, 8},
-      {3, 6},
-      {10, 20},
-      {15, 30},
-    };
-    double[] ratios = new double[rectangles.length];
-        Map<Double, Integer> ratioCount = new HashMap<>();
-        int count = 0;
-        for (int[] rectangle : rectangles) {
-            double ratio = (double) rectangle[0] / rectangle[1];
-            ratioCount.put(ratio, ratioCount.getOrDefault(ratio, 0) + 1);
-        }
+  public static void main(String[] args) {
+    int[] nums = {8,10,4,5,0,8,1,3,2,6,4,9,7};
+        int[] digits = new int[11];
+        int[] count = new int[11];
 
-        for (int c : ratioCount.values()) {
-            if (c > 1) {
-                count += (long) c * (c - 1) / 2;
+        for (int i = 0; i < digits.length; i++) {
+            digits[i] = i;
+            count[i] = 0;
+            for (int j = 0; j < nums.length; j++) {
+              if (digits[i] == nums[j]) {
+                count[i]++;
+            }
           }
+          System.out.println(digits[i] + count[i]);
         }
-    System.out.println(count);
+        int[] output = new int[count.length];
+        int idx = 0;
+        for (int i = 0; i < digits.length; i++) {
+          if (count[i] > 0) {
+            output[idx] = digits[i];
+            idx++;
+            }
+          }
+        output = Arrays.copyOf(digits, idx);
+        System.out.println(Arrays.toString(output));
+
+
   }
 }
