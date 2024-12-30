@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Library {
   // A library has many books
   // A book has attributes, title & author
@@ -27,34 +29,54 @@ public class Library {
       }
     }this.books = newBooks;
   }
-  // removeByTitle assume remove 1st book only
-  // Title substring includes keywords
-  // abcde contains ab, abc, abcd
-  public Book removeByTitle(String title){
+  // removeByTitle, assume remove 1st book only
+  public Book removeByTitle(String title) {
     int idx = 0;
-    Book [] newBooks = new Book[this.books.length - 1];
-    for (int i = 0; i < this.books.length; i++){
-      if (this.books[i].getTitle().contains(title) == false){
-
+    Book removedBook = null;
+    for (int i = 0; i < this.books.length; i++) {
+      if (this.books[i].getTitle().equals(title)) {
+        removedBook = this.books[i];
+        break; // find the first book only
       }
-    }Book[] newBooks;
-        this.books = newBooks;
-  }
+    }
+    if (removedBook == null) {
+      return null;
+    }
+    Book[] newBooks = new Book[this.books.length - 1];
+      for (int i = 0; i < this.books.length; i++) {
+        if (!this.books[i].getTitle().equals(title)) {
+            newBooks[idx++] = this.books[i];
+        }
+      }
+      this.books = newBooks;
+      return removedBook;
+    }
   // search substring
-  // if getTitle contains searchString, get that book, return new array
-  public void searchByTitle(String searchString){
+  public Book[] searchByTitle(String searchString) {
+    int count = 0;
+    for (int i = 0; i < this.books.length; i++) {
+        if (this.books[i].getTitle().contains(searchString)) {
+            count++;
+        }
+    }
+    Book[] searchedBooks = new Book[count]; 
     int idx = 0;
-    Book [] searchBooks = new Book[this.books.length - 1];
-    for (int i = 0; i < this.books.length; i++){
-      if (this.books[i].getTitle().contains(searchString) == true){
-        searchBooks[idx++] = this.books[i];
-      }
-    }this.books = searchBooks;
+    for (int i = 0; i < this.books.length; i++) {
+        if (this.books[i].getTitle().contains(searchString)) {
+            searchedBooks[idx++] = this.books[i];
+        }
+    }
+    return searchedBooks;
   }
   // Librarian (add book, remove book, search book)
 
 
   public static void main(String[] args) {
-    
+    Library library = new Library();
+    Book book = new Book("The Lord of the Rings", "J.R.R. Tolkien");
+    library.addBook(book);
+    library.removeByTitle("The Lord of the Rings");
+    library.searchByTitle("The Lord of the Rings");
+    System.out.println(library.searchByTitle("The Lord of the Rings"));
   }  
 }

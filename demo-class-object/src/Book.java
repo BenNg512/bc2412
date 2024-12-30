@@ -1,5 +1,6 @@
 
 public class Book {
+  public static final String Arrays = null;
   private String title;
   private String author;
 
