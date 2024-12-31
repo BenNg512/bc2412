@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Library {
   // A library has many books
   // A book has attributes, title & author
@@ -32,14 +30,14 @@ public class Library {
   // removeByTitle, assume remove 1st book only
   public Book removeByTitle(String title) {
     int idx = 0;
-    Book removedBook = null;
+    Book removeBook = null;
     for (int i = 0; i < this.books.length; i++) {
       if (this.books[i].getTitle().equals(title)) {
-        removedBook = this.books[i];
+        removeBook = this.books[i];
         break; // find the first book only
       }
     }
-    if (removedBook == null) {
+    if (removeBook == null) {
       return null;
     }
     Book[] newBooks = new Book[this.books.length - 1];
@@ -49,7 +47,7 @@ public class Library {
         }
       }
       this.books = newBooks;
-      return removedBook;
+      return removeBook;
     }
   // search substring
   public Book[] searchByTitle(String searchString) {
@@ -58,6 +56,9 @@ public class Library {
         if (this.books[i].getTitle().contains(searchString)) {
             count++;
         }
+    }
+    if (count == 0) {
+      return null;
     }
     Book[] searchedBooks = new Book[count]; 
     int idx = 0;
@@ -75,8 +76,9 @@ public class Library {
     Library library = new Library();
     Book book = new Book("The Lord of the Rings", "J.R.R. Tolkien");
     library.addBook(book);
-    library.removeByTitle("The Lord of the Rings");
+    //library.removeByTitle("The Lord of the Rings");
     library.searchByTitle("The Lord of the Rings");
-    System.out.println(library.searchByTitle("The Lord of the Rings"));
+    System.out.println(library.searchByTitle("The Lord x of the Rings"));
+    System.out.println(library.searchByTitle("abcdef 1223123"));
   }  
 }
