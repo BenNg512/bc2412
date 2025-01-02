@@ -21,7 +21,9 @@ public class Deck {
   
   public static void main(String[] args) {
     Deck deck = new Deck();
-  }
-
   
+  for (Card cards : deck.cards) {
+    System.out.println(cards.getSuite() +""+ cards.getRank());
+  }
+} 
 }

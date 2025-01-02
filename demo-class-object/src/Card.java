@@ -26,10 +26,6 @@ public class Card {
     } else {
       return "Black";
     }
-  }
 
-
-
-
-  
+}
 }

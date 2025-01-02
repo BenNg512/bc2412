@@ -1,17 +1,25 @@
 public class Student {
-  private int score;
+  private String name;
+  private int score;  
+  private int candyCount;
 
-  public Student(int score){
+  public Student(String name, int score){ 
+    this.name = name;
     this.score = score;
+    this.candyCount = 0;
+  }
+
+  public String getName(){
+    return this.name;
   }
   public int getScore(){
     return this.score;
   }
-  public int getCandies(){ // each round 
+  public int addCandies(){ // each round 
     if (this.score > 80){
-      return 2;
+      return + 2;
     } else if (this.score >= 60){
-      return 1;
+      return + 1;
     } else {
       return 0;
     }
@@ -39,35 +47,29 @@ public class Student {
   // student 5: 1 / 2 / 1 / 4
   // student 6: 0
   public static void main(String[] args) {
-    Student s1 = new Student(67);
-    Student s2 = new Student(89);
-    Student s3 = new Student(50);
-    Student s4 = new Student(99);
-    Student s5 = new Student(60);
-    Student s6 = new Student(59);
-    Student[] students = new Student[]{s1,s2,s3,s4,s5,s6};
+    Student[] students = new Student[]{
+      new Student("1", 67), 
+      new Student("2", 89), 
+      new Student("3", 50), 
+      new Student("4", 99), 
+      new Student("5", 60), 
+      new Student("6", 59)};
+
     int[] candiesGet = new int[students.length];
-
-    System.out.println(s2.getCandies());
-
     int candiesLeft = 20;
     while (candiesLeft > 0){
     for (int i = 0; i < students.length; i++) {
-      if (candiesLeft >= students[i].getCandies()) {
-        candiesGet[i] += students[i].getCandies();
-        candiesLeft -= students[i].getCandies();
+      if (candiesLeft >= students[i].addCandies()) {
+        candiesGet[i] += students[i].addCandies();
+        candiesLeft -= students[i].addCandies();
       } else {
         candiesGet[i] += 0;
       }
-      System.out.println("Student" + (i + 1) +
-      " Total: " + candiesGet[i]);
+      }
     }
+
+    for (int i = 0; i < students.length; i++) {
+    System.out.println("Student " + students[i].getName() + " : " + candiesGet[i]);
     }
-    
-
-
-
   }
-
-
 }
