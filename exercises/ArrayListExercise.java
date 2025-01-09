@@ -25,8 +25,9 @@ public class ArrayListExercise {
     System.out.println(numbers);
     // 1d
     numbers.remove(2);
+    System.out.println(numbers);
     // 1e
-    System.out.println(numbers.size());
+    System.out.println("Size: " + numbers.size());
     System.out.println();  
     
 
@@ -46,8 +47,9 @@ public class ArrayListExercise {
     fruits.add("Mango");
     fruits.add("Orange");
     // 2b
+    System.out.println(fruits.contains("Grapes"));
+    // 2c
     if (fruits.contains("Grapes") == false) {
-      // 2c
       fruits.add("Grapes");
     }
     // 2d
@@ -94,7 +96,7 @@ public class ArrayListExercise {
     // 4b
     countries.add("Canada");
     // 4c
-    System.out.println(countries.contains("India"));
+    countries.add("India"); // duplicated, will not be added in HashSet
     // 4d
     System.out.println(countries);
     System.out.println();  
@@ -118,7 +120,7 @@ public class ArrayListExercise {
     // 5c
     num4.remove(2.2);
     // 5d
-    System.out.println(num4.size());
+    System.out.println("Size: " + num4.size());
     System.out.println();  
 
     // Exercise 6: Intersection of Sets
@@ -142,12 +144,16 @@ public class ArrayListExercise {
     set2.add(50);
     set2.add(60);
     // 6d
+    HashSet<Integer> commonNum = new HashSet<>();
+    //commonNum.addAll(set1);
+    //commonNum.retainAll(set2);
     for (Integer num : set1) {
       if (set2.contains(num)) {
-        // 6e
-        System.out.println(num);
+        commonNum.add(num);
       }
     }
+    // 6e
+    System.out.println(commonNum);
     System.out.println();
 
     // Exercise 7: Convert HashSet to ArrayList
@@ -233,7 +239,7 @@ public class ArrayListExercise {
     HashSet<Student> commonStudents = new HashSet<>();
     for (Student s1 : std1) {
       for (Student s2 : std2) {
-        if (s1.getName().equals(s2.getName())) {
+        if (s1.getName().equals(s2.getName()) && s1.getId() == s2.getId()) { 
           commonStudents.add(s1);
         }
       }
@@ -282,8 +288,8 @@ public class ArrayListExercise {
         return true;
       if (!(obj instanceof Student))
         return false;
-        Student s = (Student) obj;
-        return Objects.equals(this.name, s.getName());
+        Student s2 = (Student) obj; // Object -> Student
+        return Objects.equals(this.name, s2.getName());
     } 
 
   }
