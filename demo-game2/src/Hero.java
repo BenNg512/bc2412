@@ -1,14 +1,17 @@
-public abstract class Hero implements Actions { 
+import java.math.BigDecimal;
+
+public abstract class Hero implements HeroInterface { 
 // abstract here so cannot new Hero
   private static int lastId = 0;
   public String name; // Name
   public String role; // Warrior, Archer, Mage
+  public Weapon weapon;
   public int heroId;
   public int warriorId;
   public int archerId;
   public int mageId;
   public int lv; // level
-  public int hp; // Health Point
+  public int hp; // heroHP
   public int hpMax; // Max Health Point
   public int mp; // Magic Point
   public int mpMax; // Max Magic Point
@@ -19,20 +22,55 @@ public abstract class Hero implements Actions {
   public int AG; // Agility
   public double CC; // Critical Chance
   public double CD; // Critical Damage
-
+  
   public Hero() {
-    this.heroId = ++lastId; // Assign a new unique ID
+      this.heroId = ++lastId; // Assign a new unique ID
+      this.weapon = new BareHands(); // default weapon is not null
+  }
+
+  public String getWeaponName(){
+    return this.weapon.getWeaponName();
+  }
+
+  protected void setWeapon(Sword sword) {
+    if (this.role.equals("Warrior")) {
+      this.weapon = sword;
+      System.out.println(this.name + " is equipped with " + this.weapon.getWeaponName());
+    } else {
+      System.out.println(this.name + " cannot equip a sword");
+    }
+  }
+  protected void setWeapon(Bow bow) {
+    if (this.role.equals("Archer")) {
+      this.weapon = bow;
+      System.out.println(this.name + " is equipped with " + this.weapon.getWeaponName());
+    } else {
+      System.out.println(this.name + " cannot equip a bow");
+    }
+  }
+  protected void setWeapon(Stave stave) {
+    if (this.role.equals("Mage")) {
+      this.weapon = stave;
+      System.out.println(this.name + " is equipped with " + this.weapon.getWeaponName());
+    } else {
+      System.out.println(this.name +" cannot equip a wand");
+    }
+  }
+  
+  public void removeWeapon(){
+    this.weapon = new BareHands();
   }
 
   public String getId(){ 
     return "HERO" + this.heroId + "W" + this.warriorId + "A" + this.archerId + "M" + this.mageId;
   }
 
-  public void getHeroDetails(){
+  public void getFinalDetails(){
     System.out.println("            Name : " + this.getName());
     System.out.println("              ID : " + this.getId());
     System.out.println("            Role : " + this.getRole());
     System.out.println("              Lv : " + this.getLv());
+    System.out.println("          Weapon : " + this.weapon.getWeaponName() + " LV" + this.weapon.getWeaponLevel());
     System.out.println("              Hp : " + this.getHp() + " / " + this.getHpMax());
     System.out.println("              Mp : " + this.getMp() + " / " + this.getMpMax());
     System.out.println("Physical Attack  : " + this.getPA());
@@ -44,6 +82,35 @@ public abstract class Hero implements Actions {
     System.out.println("Critical Damage  : " + this.getCD());
     System.out.println("Is Alive?        : " + this.isAlive());
     System.out.println();
+  }
+
+  public void phyAttack(Hero atkHero){
+    int phyDamage = 0;
+    if (this.hp == 0) {
+      System.out.println(this.getName() + " cannot attack because is dead already.");
+    } else if (atkHero.hp == 0) {
+      System.out.println(atkHero.getName() + " is dead already. Respect! Don't hit the dead body la.");
+      System.out.println();
+    } else {
+      phyDamage = this.getPA() - atkHero.getPD();
+        if(phyDamage <= 0){ // return 0 damage if total phy defense > this phy attack
+          phyDamage = 0;
+        }
+          atkHero.hp -= phyDamage;
+        if (atkHero.hp <= 0) { //return 0 if hp <= 0
+          atkHero.hp = 0;
+        }
+      System.out.println(this.getName() + " attacks " + atkHero.getName() + " with "+ this.getWeaponName());
+      System.out.println(atkHero.getName() + " takes " + phyDamage + " physical damages");
+      System.out.println(atkHero.getName() + " has " + atkHero.getHp() + " hp left");
+      System.out.println();
+
+    if (atkHero.hp <= 0) { //return dead 
+      atkHero.hp = 0;
+      System.out.println(atkHero.getName() + " is dead.");
+      System.out.println();
+    }
+    }
   }
 
   public String getName() {
@@ -71,13 +138,13 @@ public abstract class Hero implements Actions {
     return this.mpMax;
   }
   public int getPA() {
-    return this.PA;
+    return this.PA + this.weapon.PA;
   }
   public int getPD() {
     return this.PD;
   }
   public int getMA() {
-    return this.MA;
+    return this.MA + this.weapon.MA;
   }
   public int getMD() {
     return this.MD;
@@ -86,7 +153,9 @@ public abstract class Hero implements Actions {
     return this.AG;
   }
   public double getCC() {
-    return this.CC;
+    // return this.CC + this.weapon.CC;
+    BigDecimal Total = BigDecimal.valueOf(this.CC).add(BigDecimal.valueOf(this.weapon.CC));
+    return Total.doubleValue();
   }
   public double getCD() {
     return this.CD;
@@ -154,5 +223,4 @@ public abstract class Hero implements Actions {
     this.CD = Math.max(1.5, Math.min(CD, 10));
     return this.CD;
   }
-
 }

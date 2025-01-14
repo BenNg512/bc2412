@@ -6,8 +6,8 @@ public class Triangle extends Shape {
   private double height;
   private String color;
   
-  public Triangle(double base, double height) {
-    super();
+  public Triangle(String color, double base, double height) {
+    super(color);
     this.base = base;
     this.height = height;
   }

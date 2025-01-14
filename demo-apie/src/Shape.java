@@ -9,10 +9,10 @@ public abstract class Shape {
         this.color = color;
     }
     public Square createSquare(String color, double length){
-        return new Square(length);
+        return new Square("none", length);
     }
     public Circle createCircle(String color, double radius){
-        return new Circle(radius);
+        return new Circle("none", radius);
     }
 
     public String getColor() {
@@ -27,9 +27,9 @@ public abstract class Shape {
 
     public static Shape create(String ref){
     if(ref.equals("circle")){
-        return new Circle(10);
+        return new Circle("R", 10);
     }else if(ref.equals("square")){
-        return new Square(10);
+        return new Square("G", 10);
     }else if(ref.equals("triangle")){
         return new Triangle("yellow", 10, 10);
     }else{
@@ -38,7 +38,7 @@ public abstract class Shape {
     }
 
     public static Circle createCircle(char color, double radius){
-        return new Circle(radius);
+        return new Circle("none", radius);
     }
 
     public void setColor(String color) {

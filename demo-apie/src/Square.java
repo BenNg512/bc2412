@@ -6,7 +6,7 @@ public class Square extends Shape{
   private String color;
 
   public Square(String color, double length) {
-    super();
+    super(color);
     this.length = length;
   }
   public String getColor(){

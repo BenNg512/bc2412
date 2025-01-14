@@ -11,7 +11,7 @@ public class DemoHashSet {
     System.out.println(strings);
     System.out.println(strings.size());
 
-    strings.add("XYZ");
+    strings.add(new String("XYZ")); // true
     System.out.println(strings);
     System.out.println(strings.size());
 
@@ -27,17 +27,19 @@ public class DemoHashSet {
 
     // no remove by index in HashSet
     // can use this for loop to do so
-    int targetRemoveIndex = 1; // remove 2nd book (index = 1)
-    String targetRemoveString = null;
-    int index = 0;
-    for (String s : strings) {
-      if (index == targetRemoveIndex) { // find index 1 String
-        targetRemoveString = s;
-        break;
-      }
-      index++;
-    }
-    strings.remove(targetRemoveString);
+    //! HashSet is not ordered because its underlying data structure is not an array
+    //! Do not assign index and use for loop, because the position will change
+    // int targetRemoveIndex = 1; // remove 2nd book (index = 1)
+    // String targetRemoveString = null;
+    // int index = 0;
+    // for (String s : strings) {
+    //   if (index == targetRemoveIndex) { // find index 1 String
+    //     targetRemoveString = s;
+    //     break;
+    //   }
+    //   index++;
+    // }
+    // strings.remove(targetRemoveString);
     System.out.println(strings);
     System.out.println(strings.size());
 

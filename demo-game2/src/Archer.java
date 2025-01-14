@@ -1,5 +1,6 @@
 public class Archer extends Hero{
   private static int countArcher = 0;
+  private Bow bow;
 
   public Archer(String name) {
     super();

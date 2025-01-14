@@ -23,5 +23,14 @@ public class ArrayList1<T> {
     books.add("ABC");
     books.add("IJK");
     books.size(); // 2
+    String[] ss = new String [3];
+    
+    String[] ss2 = new String [] {"ABC", "IJK", "XYZ"};
+    // ss2 is an address of the array, ss2[0]
+    System.out.println(ss2[1]); // IJK
+
+
+
+
   }
 }

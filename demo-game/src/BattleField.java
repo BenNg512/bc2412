@@ -1,40 +1,41 @@
 public class BattleField {
   public static void main(String[] args) {
-  Warrior Galen = new Warrior("Galen"); //ID2
-    Galen.getDetails();
-    Galen.levelUp();
-    Galen.levelUp();
-    Galen.levelUp();
-    Galen.levelUp();
-    Galen.getDetails();
+    Hero h1 = new Warrior("Galen");
+    Hero h2 = new Archer("Ashe");
 
-  Hero Ashe = new Archer("Ashe"); //ID2
-    Ashe.getDetails();
+    SuperHero<Hero, Weapon> s1 = new SuperHero<>();
+    System.out.println(s1.getHero());
+    s1.setHero(h1); 
+    s1.setHero(h2); // change h1 to h2 -> nothing happens
+    System.out.println(s1.getHero().name);
 
-    Ashe.levelUp();
-    Ashe.getDetails();
+    SuperHero<Hero, Weapon> s3 = new SuperHero<>();
+    s3.setHero(new Mage("Gandalf"));
+    s3.getHero().setPA(100);
+    s3.setWeapon(new Sword());
+    s3.getHero().setMA(100);
+    s3.phyAttack(s1); 
 
-    Ashe.getDetails();
-    Ashe.setLv(98);
-    Ashe.getDetails();
-    Ashe.levelUp();
-    Ashe.levelUp();
-    Ashe.levelUp();
-    Ashe.getDetails();
-    Ashe.setPD(01);
-
-    
-  Hero Teemo = new Mage("Teemo"); //ID2
-  Teemo.getDetails();
-  Hero Gandalf = new Mage("Gandalf");
-  Gandalf.setHp(1);
-  Gandalf.getDetails();
-
-
+    SuperHero<Hero, Weapon> s2 = new SuperHero<>();
+    s2.setHero(h2);
+    s1.phyAttack(s2);
+    s1.setWeapon(new Wand());
+    s2.setWeapon(new Sword());
+    System.out.println(s1.totalPA());
+    h1.getHeroDetails();
+    s1.phyAttack(s2);
+    s2.phyAttack(s1);
+    s1.phyAttack(s2);
+    s2.phyAttack(s1);
+    s1.phyAttack(s2);
+    s1.removeWeapon();
+    h1.getHeroDetails();
+    h1.getHpMax();
+    System.out.println(s1.getName() + " Max HP: " + s1.totalHpMax());
+    System.out.println(s2.getName() + " Max HP: " + s2.totalHpMax());
 
 
 
 
   }
-  
 }

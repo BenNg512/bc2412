@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
@@ -214,10 +213,9 @@ public class ArrayListExercise {
       }
     }
     for (Student s : studentsA) {
-      System.out.println("8e: " + s.getName());
+      System.out.println(s.getName());
     }
     System.out.println();
-
 
     // Exercise 9: HashSet of Students
     // 9a. Create two HashSets of Student objects:
@@ -288,8 +286,8 @@ public class ArrayListExercise {
         return true;
       if (!(obj instanceof Student))
         return false;
-        Student s2 = (Student) obj; // Object -> Student
-        return Objects.equals(this.name, s2.getName());
+        Student s = (Student) obj; // obj is instance of Student: Object -> Student
+        return Objects.equals(this.name, s.getName());
     } 
 
   }

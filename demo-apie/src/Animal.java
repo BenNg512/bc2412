@@ -57,9 +57,9 @@ public class Animal implements Eatable{
     animals[3] = new Animal("Animal");
     // Animal cannot be new if it is abstract
     Shape[] shapes = new Shape[3];
-    shapes[0] = new Circle(3.0);
-    shapes[1] = new Square(3.0);
-    shapes[2] = new Triangle(3.0, 4.0);
+    shapes[0] = new Circle("R", 3.0);
+    shapes[1] = new Square("G", 3.0);
+    shapes[2] = new Triangle("B", 3.0, 4.0);
     for (Shape shape : shapes) {
       System.out.println(shape.area());
     }
