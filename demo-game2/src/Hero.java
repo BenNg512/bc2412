@@ -2,7 +2,7 @@ import java.math.BigDecimal;
 
 public abstract class Hero implements HeroInterface { 
 // abstract here so cannot new Hero
-  private static int lastId = 0;
+  private int lastId = 0;
   public String name; // Name
   public String role; // Warrior, Archer, Mage
   public Weapon weapon;

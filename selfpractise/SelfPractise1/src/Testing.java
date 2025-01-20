@@ -1,23 +1,11 @@
 public class Testing {
-      public boolean checkIfPangram(String sentence) {
-        char[] arr = new char[26];
-        int[] count = new int[26];
-        boolean isPangram = true;
-        for (int i = 0; i < sentence.length(); i++) {
-            for (int j = 0; j < arr.length; j++) {
-                arr[j] = (char) ('a' + j);
-                if (sentence.charAt(i) == arr[j]) {
-                count[j]++;
-                }
-                if (count[j] != 0){
-                continue;
-                } else {
-                isPangram = false;
-            }
-        }
-        }
-    return isPangram;
-}
+
+    // 4, 2, 7, 1, 3
+    // 1st: 4 -> 0
+    // 2nd: 2 -> 1st left
+    // 3rd: 7 -> lst right
+    // 4th: 1 -> 2nd left
+    // 5th: 3 -> 2nd right
 
 }
 

@@ -16,6 +16,7 @@ public class DemoHashMap {
     fruitMap.put("APPLE", 4); 
     System.out.println(fruitMap);
     System.out.println(fruitMap.size());
+    System.out.println(fruitMap.get("APPLE"));
 
     // apple != APPLE according to equals()
 

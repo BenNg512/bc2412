@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ExceptionExercise4 {
 
   // Follow the instructions below to complete the User Registration Process.
-  public static void main(String[] args) {
+  public static void main(String[] args) throws UserRegistrationException {
     Scanner scanner = new Scanner(System.in);
 
     System.out.print("Enter username: ");
@@ -36,7 +36,15 @@ public class ExceptionExercise4 {
   // if anyone of the above throw exception, this method registerUser() should throw custom
   // exception UserRegistrationException.
   // otherwise, print "User registered successfully: jackywong", where jackywong is the username.
-  public static void registerUser(String username, String password, String email) {
+  public static void registerUser(String username, String password, String email) throws UserRegistrationException {
+    try {
+      validateUsername(username);
+      validatePassword(password);
+      validateEmail(email);
+      System.out.println("User registered successfully: " + username);
+    } catch (IllegalArgumentException e) {
+      throw new UserRegistrationException();
+    }
 
   }
 
