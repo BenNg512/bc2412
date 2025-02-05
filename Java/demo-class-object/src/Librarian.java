@@ -28,7 +28,7 @@ public class Librarian {
     Book[] books = new Book[this.books.length + -1];
     int idx = 0;
     for (int i = 0; i < this.library.size(); i++) {
-      if (this.library.getBooks()[i].getTitle().contains(searchString)) {
+      if (this.library.getBooks()[i].getName().contains(searchString)) {
       books[idx++] = this.library.getBooks()[i];
       }
     }

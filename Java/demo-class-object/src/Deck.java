@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 
 public class Deck {
   // 52 cards
@@ -18,6 +19,10 @@ public class Deck {
     //   }
     // }
     }
+
+    public List<Card> getCards() {
+      return Arrays.asList(this.cards);
+    }
   
   public static void main(String[] args) {
     Deck deck = new Deck();
@@ -25,5 +30,6 @@ public class Deck {
   for (Card cards : deck.cards) {
     System.out.println(cards.getSuite() +""+ cards.getRank());
   }
-} 
+}
+
 }

@@ -1,20 +1,24 @@
+import java.util.HashMap;
+
 class Testing {
-    public static int searchInsert(int[] nums, int target) {
-        int result = 0;
+    
+    public static void main(String[] args) {
+        // Input: nums = [4,1,2,1,2]
+        // Output: 4
+
+        int[] nums = {4,1,2,1,2,2,2};
+        HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++){
-            if (target <= nums[i]){
-                result = i;
-                break;
-            } else if (target > nums[nums.length - 1]){
-                result = nums.length;
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1); 
+        }
+
+        for (int i = 0; i < nums.length; i++){
+            if (map.get(nums[i]) == 1){
+                System.out.println(nums[i]);
             }
-        }return result;
-        
+        }
+
+
     }
     
-        public static void main(String[] args) {
-            int[] arr = new int[]{1,2,3,3,4,3,3,4};
-            System.out.println(searchInsert(arr, 7));
-    }
-
 }
