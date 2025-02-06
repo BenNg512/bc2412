@@ -10,11 +10,16 @@ import java.util.List;
  * Private Variables:<br>
  * {@link #authorizedUsers}: List&lt;Person&gt;<br>
  */
-public class CommercialAccount {
+public class CommercialAccount extends Account{
 	private List<Person> authorizedUsers;
 
 	public CommercialAccount(Company company, Long accountNumber, int pin, double startingDeposit) {
 		// complete the function
+		this.accountHolder = company;
+		this.accountNumber = accountNumber;
+		this.pin = pin;
+		this.balance = startingDeposit;
+		this.authorizedUsers = new ArrayList<Person>();
 	}
 
 	/**
@@ -22,6 +27,7 @@ public class CommercialAccount {
 	 */
 	protected void addAuthorizedUser(Person person) {
 		// complete the function
+		this.authorizedUsers.add(person);
 	}
 
 	/**
@@ -31,6 +37,9 @@ public class CommercialAccount {
 	 */
 	public boolean isAuthorizedUser(Person person) {
 		// complete the function
-		return true;
+		if (this.authorizedUsers.contains(person)){
+			return true;
+			}
+		return false;
 	}
 }
